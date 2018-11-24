@@ -1,1 +1,1 @@
-docker run -d --name -p 63333 shadowsocks registry.cn-hangzhou.aliyuncs.com/shaseng/shadowsocks -k 123456 -m aes-256-cfb -p 63333
+docker run -d --name -p 63333:63333 shadowsocks registry.cn-hangzhou.aliyuncs.com/shaseng/shadowsocks -k 123456 -m aes-256-cfb -p 63333
