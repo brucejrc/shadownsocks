@@ -1,0 +1,1 @@
+docker run -d --name shadowsocks registry.cn-hangzhou.aliyuncs.com/dtstack-prod/shadowsocks -k 123456 -m aes-256-cfb -p 63333
