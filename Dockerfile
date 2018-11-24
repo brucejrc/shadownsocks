@@ -9,7 +9,8 @@ RUN echo "http://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories \
 RUN apk add -U bash tzdata wget grep bc coreutils python py-pip libc6-compat ca-certificates su-exec libsodium-dev python-pip \
     && cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && ln -sf /bin/bash /bin/ash \
-    && pip install shadowsocks
+    
+RUN pip install shadowsocks
     
 ENTRYPOINT ["/usr/local/bin/ssserver","-s","0.0.0.0"]
     
