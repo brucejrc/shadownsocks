@@ -1,15 +1,15 @@
-FROM alpine:3.6
+FROM ubuntu:14.04
 
-MAINTAINER shaseng<shaseng@dtstack.com>
+RUN apt-get update && apt-get install -y \
+    python-software-properties \
+    software-properties-common \
+ && add-apt-repository ppa:chris-lea/libsodium \
+ && echo "deb http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list \
+ && echo "deb-src http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list \
+ && apt-get update \
+ && apt-get install -y libsodium-dev python-pip
 
-RUN echo "http://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories \
-    && echo "http://mirrors.aliyun.com/alpine/v3.6/community" >> /etc/apk/repositories \
-    && apk upgrade --update
+RUN pip install shadowsocks
 
-RUN apk add -U bash tzdata wget grep bc coreutils python py-pip libc6-compat ca-certificates su-exec libsodium-dev \
-    && cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && ln -sf /bin/bash /bin/ash \
-    && pip install shadowsocks
-    
 ENTRYPOINT ["/usr/local/bin/ssserver","-s","0.0.0.0"]
     
