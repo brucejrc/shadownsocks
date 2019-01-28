@@ -2,7 +2,7 @@
 
 ## Pull image:
 ```
-docker pull registry.cn-hangzhou.aliyuncs.com/shaseng/shadowsocks:
+docker pull registry.cn-hangzhou.aliyuncs.com/shaseng/shadowsocks:latest
 ```
 
 ## Start docker:
